@@ -1,0 +1,23 @@
+﻿<adonisControls:AdonisWindow  xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI" x:Class="Stage.Tool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stage.Tool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" FlowDirection="LeftToRight" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen">
+    <Window.Style>
+        <Style TargetType="Window" BasedOn="{StaticResource {x:Type Window}}"/>
+    </Window.Style>
+
+    <Canvas>
+        <TextBlock Text="資料庫" FontSize="24" Canvas.Left="165" Canvas.Top="52" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="選擇要啟動的資料庫" FontSize="16" Canvas.Left="165" Canvas.Top="87" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
+        <ComboBox x:Name="DBComboBox" Canvas.Left="165" Canvas.Top="124" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border BorderBrush="Black" BorderThickness="1"/>
+        </ComboBox>
+        <Button x:Name="button1" Click="button_Save" Content="儲存並離開" Canvas.Left="360" Canvas.Top="322" Height="38" Width="145"/>
+        <Button x:Name="button1複製__C_"  Click="button_Cancel" Content="取消" Canvas.Left="540" Canvas.Top="322" Height="38" Width="145" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+    </Canvas>
+</adonisControls:AdonisWindow>

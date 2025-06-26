@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>member.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\empty.jpg" />
+    <None Remove="member.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="member.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.0.1" />
+    <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="7.0.12" />
+    <PackageReference Include="MvvmLight" Version="5.4.1.1" />
+    <PackageReference Include="WpfObservableRangeCollection" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Stage.BLL\Stage.BLL.csproj" />
+    <ProjectReference Include="..\Stage.Data\Stage.Data.csproj" />
+    <ProjectReference Include="..\Stage.ReportViewCore\Stage.ReportViewCore.csproj" />
+    <ProjectReference Include="..\Stage.Tool\Stage.Tool.csproj" />
+    <ProjectReference Include="..\State.CommonWPF\State.CommonWPF.csproj" />
+    <ProjectReference Include="..\UIComponent\UIComponent.csproj" />
+    <ProjectReference Include="..\Utility\Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\empty.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="member.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Common\Navbar\NavBarUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

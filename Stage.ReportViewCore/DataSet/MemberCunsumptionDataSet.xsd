@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MemberCunsumptionDataSet" targetNamespace="http://tempuri.org/MemberCunsumptionDataSet.xsd" xmlns:mstns="http://tempuri.org/MemberCunsumptionDataSet.xsd" xmlns="http://tempuri.org/MemberCunsumptionDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="" IsAppSettingsProperty="false" Modifier="Assembly" Name="posDbConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MemberCunsumptionDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="MemberCunsumptionDataSet" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MemberCunsumptionDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MemberCunsumptionDataSet" msprop:Generator_RowEvHandlerName="MemberCunsumptionDataSetRowChangeEventHandler" msprop:Generator_RowDeletedName="MemberCunsumptionDataSetRowDeleted" msprop:Generator_RowDeletingName="MemberCunsumptionDataSetRowDeleting" msprop:Generator_RowEvArgName="MemberCunsumptionDataSetRowChangeEvent" msprop:Generator_TablePropName="_MemberCunsumptionDataSet" msprop:Generator_RowChangedName="MemberCunsumptionDataSetRowChanged" msprop:Generator_UserTableName="MemberCunsumptionDataSet" msprop:Generator_RowChangingName="MemberCunsumptionDataSetRowChanging" msprop:Generator_RowClassName="MemberCunsumptionDataSetRow" msprop:Generator_TableClassName="MemberCunsumptionDataSetDataTable" msprop:Generator_TableVarName="tableMemberCunsumptionDataSet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_UserColumnName="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" type="xs:string" minOccurs="0" />
+              <xs:element name="MemberGender" msprop:Generator_ColumnPropNameInTable="MemberGenderColumn" msprop:Generator_ColumnPropNameInRow="MemberGender" msprop:Generator_UserColumnName="MemberGender" msprop:Generator_ColumnVarNameInTable="columnMemberGender" type="xs:string" minOccurs="0" />
+              <xs:element name="ConsumptionName" msprop:Generator_ColumnPropNameInTable="ConsumptionNameColumn" msprop:Generator_ColumnPropNameInRow="ConsumptionName" msprop:Generator_UserColumnName="ConsumptionName" msprop:Generator_ColumnVarNameInTable="columnConsumptionName" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderTotalPrice" msprop:Generator_ColumnPropNameInTable="OrderTotalPriceColumn" msprop:Generator_ColumnPropNameInRow="OrderTotalPrice" msprop:Generator_UserColumnName="OrderTotalPrice" msprop:Generator_ColumnVarNameInTable="columnOrderTotalPrice" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderDate" msprop:Generator_ColumnPropNameInTable="OrderDateColumn" msprop:Generator_ColumnPropNameInRow="OrderDate" msprop:Generator_UserColumnName="OrderDate" msprop:Generator_ColumnVarNameInTable="columnOrderDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

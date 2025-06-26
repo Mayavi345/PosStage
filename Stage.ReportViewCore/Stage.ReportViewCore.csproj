@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="MemberConsumptionReport.rdlc">
+      <CustomToolNamespace></CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc">
+      <CustomToolNamespace></CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.18" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.18" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Stage.BLL\Stage.BLL.csproj" />
+    <ProjectReference Include="..\Stage.DAL\Stage.DAL.csproj" />
+    <ProjectReference Include="..\Stage.Data\Stage.Data.csproj" />
+    <ProjectReference Include="..\UIComponent\UIComponent.csproj" />
+    <ProjectReference Include="..\Utility\Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DataSet\DataSet1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DataSet\MemberCunsumptionDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MemberCunsumptionDataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataSet\DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="DataSet\MemberCunsumptionDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MemberCunsumptionDataSet.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AdonisUI" Version="1.17.1" />
+    <PackageReference Include="AdonisUI.ClassicTheme" Version="1.17.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Stage.BLL\Stage.BLL.csproj" />
+    <ProjectReference Include="..\Utility\Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

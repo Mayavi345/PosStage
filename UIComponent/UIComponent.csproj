@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="View\CalendarBlackDatesUserControl\CalendarBlackDatesUsercontrol.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Login\View\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserControlItem\PasswordUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserControlItem\LabelTextUserControl1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

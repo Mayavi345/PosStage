@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Stage.Presentation.MVVM.MemberLevelInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stage.Presentation.MVVM"
+             mc:Ignorable="d"  >
+    <Grid     Height="32" Width="127">
+        <Canvas >
+            <TextBlock Text="{Binding Name,FallbackValue=Jack}" TextAlignment="Center" Canvas.Left="20" FontWeight="Black" Canvas.Top="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="15" Width="36" RenderTransformOrigin="0.639,5.5"  ></TextBlock>
+            <TextBlock Text="{Binding Gender,FallbackValue=M}" Canvas.Left="26" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="17" RenderTransformOrigin="-2.245,0.591" />
+            <TextBlock Text="{Binding Level,FallbackValue=金}" TextAlignment="Center" FontSize="18"  FontWeight="Bold" Canvas.Left="61" Canvas.Top="5" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="1,0.509" Height="21" Width="19" Foreground="#FF1D47F1" ></TextBlock>
+            <Rectangle x:Name="rectangle" Height="32" Canvas.Left="10" Stroke="#FF1D47F1" Width="5" HorizontalAlignment="Center" VerticalAlignment="Top" Fill="{Binding Stroke, ElementName=rectangle}"/>
+            <Button Content="X" Name="Button_Remove" Command="{Binding RemoveCommand}" Background="{x:Null}" BorderBrush="#FF9C0000" FontSize="10" Foreground="#FFA40000" Canvas.Left="105" Height="20" Width="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Canvas>
+    </Grid>
+</UserControl>

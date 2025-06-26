@@ -1,0 +1,20 @@
+﻿<Window x:Class="Stage.RepoertView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        xmlns:local="clr-namespace:Stage.RepoertView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Canvas>
+            <WindowsFormsHost HorizontalAlignment="Left" Height="360"  VerticalAlignment="Top" Width="718" Canvas.Left="57" Canvas.Top="50">
+                <rv:ReportViewer x:Name="myReportViewr"></rv:ReportViewer>
+            </WindowsFormsHost>
+            <Button Content="更新資料" Click="Button_Click_Refresh" Canvas.Left="655" Canvas.Top="20" HorizontalAlignment="Left" VerticalAlignment="Center"></Button>
+            <Button Content="關閉程式" Click="Button_Click_Exit" Canvas.Left="720" Canvas.Top="20" HorizontalAlignment="Left" VerticalAlignment="Center"></Button>
+
+        </Canvas>
+    </Grid>
+</Window>

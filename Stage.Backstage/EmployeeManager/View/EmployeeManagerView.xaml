@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="Stage.Backstage.EmployeeManagerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stage.Backstage"
+             xmlns:component="clr-namespace:UIComponent.View;assembly=UIComponent"
+             xmlns:subView="clr-namespace:Stage.Backstage.View"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1080" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <local:NavBarUserControl DataContext="{Binding NavBarViewModel,Mode=TwoWay}" ></local:NavBarUserControl>
+        <!--//TODO Hard Code-->
+        <Label x:Name="label" Content="姓名篩選" HorizontalAlignment="Left" Margin="5,5,0,0" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="65"/>
+        <TextBox Text="{Binding TextToFilter,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="65,5,910,0" Grid.Row="1" />
+
+
+        <Label Grid.Row="1" Content="員工管理" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"></Label>
+
+        <DataGrid Grid.Row="2" AutoGenerateColumns="False" Margin="5" IsReadOnly="True" ItemsSource="{Binding EmployeeCollection}" Name="EmployeeDG" ItemStringFormat="">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="序號" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="姓名" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="帳號" Binding="{Binding Account}"></DataGridTextColumn>
+                <!--<DataGridTextColumn Header="Password" Binding="{Binding Password}">
+                </DataGridTextColumn>-->
+                <DataGridTemplateColumn Header="密碼" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <component:PasswordUserControl x:Name="passwordBox" IsPreviewText="True" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="100"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="性別" Binding="{Binding Gender.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="權限" Binding="{Binding Role.RoleName}"></DataGridTextColumn>
+                <!--<DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="編輯" Command="{Binding DataContext.EditCommand,
+                                                      RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
+                                                      CommandParameter="{Binding}"
+                                      IsEnabled="{Binding DataContext.IsManagerRole,
+                                                   RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
+                                    ></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="刪除" Command="{Binding DataContext.DeleteCommand,
+                                                      RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
+                                                      CommandParameter="{Binding}"
+                                      IsEnabled="{Binding DataContext.IsManagerRole,
+                                                   RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
+                                    ></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding DataGridSelectionChangedCommand}" CommandParameter="{Binding SelectedItems, ElementName=EmployeeDG}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </DataGrid>
+        <Grid  Grid.Row="3" IsEnabled="{Binding IsManagerRole}">
+            <subView:AddEmployeeView DataContext="{Binding AddEmployeeViewModel}"></subView:AddEmployeeView>
+        </Grid>
+        <Grid Grid.Row="4" IsEnabled="{Binding IsManagerRole}">
+            <subView:UpdateEmployeeView DataContext="{Binding UpdateEmployeeViewModel}"></subView:UpdateEmployeeView>
+        </Grid>
+    </Grid>
+</UserControl>

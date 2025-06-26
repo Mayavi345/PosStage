@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <BitmapImage x:Key="Flat_tick_icon" UriSource="pack://application:,,,/Images/Flat_tick_icon.svg.png"/>
+    <BitmapImage x:Key="employee_1_Image" UriSource="pack://application:,,,/Images/employee/employee (1).jpg"/>
+    <BitmapImage x:Key="employee_2_Image" UriSource="pack://application:,,,/Images/employee/employee (2).jpg"/>
+    <BitmapImage x:Key="employee_3_Image" UriSource="pack://application:,,,/Images/employee/employee (3).jpg"/>
+    <BitmapImage x:Key="employee_4_Image" UriSource="pack://application:,,,/Images/employee/employee (4).jpg"/>
+ 
+
+</ResourceDictionary>

@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Stage.ReportViewCore.Calendar.CalendarSelecter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stage.ReportViewCore.Calendar" xmlns:component="clr-namespace:UIComponent.View;assembly=UIComponent"
+             mc:Ignorable="d" 
+             Background="#302C3A"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <!--<component:SelectTimeCalendarView DateRanges="{Binding ViewModelDateList,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                              ApplyCommand="{Binding ApplyCommand}"
+                                              ClearCommand="{Binding ClearCommand}"
+                                              NoDataLockButton="True"
+                                              Foreground="White"
+                                              ></component:SelectTimeCalendarView>-->
+        </Grid>
+    </Grid>
+</UserControl>

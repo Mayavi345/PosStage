@@ -1,0 +1,134 @@
+﻿<UserControl x:Class="PosStage.MVVM.View.BusinessSummaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:PosStage.MVVM.View"
+             xmlns:component="clr-namespace:UIComponent.View;assembly=UIComponent"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:view="clr-namespace:Stage.Presentation.MVVM"
+             mc:Ignorable="d" 
+               Height="450" Width="900"
+           >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <local:NavBarUserControl  DataContext="{Binding NavBarViewModel}" ></local:NavBarUserControl>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <component:SelectTimeCalendarView DateRanges="{Binding ViewModelDateList,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></component:SelectTimeCalendarView>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <DataGrid  AutoGenerateColumns="False" Margin="5" Name="orderDG" IsReadOnly="True" ItemsSource="{Binding OrderModelCollection}" SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="訂單編號" Binding="{Binding OrderNumber}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="訂單/結帳時間" Binding="{Binding Timestamp, StringFormat={}{0:yyyy-MM-dd HH:mm:ss tt}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="訂單金額" Binding="{Binding TotalAmount}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="員工" Binding="{Binding EmployeeName}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding DataGridSelectionChangedCommand}" CommandParameter="{Binding SelectedItems, ElementName=orderDG}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Row="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                    <Grid>
+                        <TextBox  Width="120" Text="{Binding SearchText,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 0 0" Height="30" VerticalAlignment="Top"></TextBox>
+                        <TextBlock IsHitTestVisible="False" Width="100" Text="搜尋訂單編號" Foreground="DarkGray" Margin="10 5 0 0" Height="30" VerticalAlignment="Top">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SearchText}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+
+                    <DataGrid AutoGenerateColumns="False" Margin="5"  IsReadOnly="True" ItemsSource="{Binding ProductModelList}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="產品序號" Binding="{Binding ProductId}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="名稱" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="數量" Binding="{Binding Quantity}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="單價" Binding="{Binding Price}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="小計" Binding="{Binding ToltalPrice}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Border  Margin="5">
+                        <StackPanel>
+                            <Label Content="訂單資訊" FontWeight="Bold"></Label>
+                            <Grid Margin="5" x:Name="UpdateGrid" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="1" Grid.Column="0" Content="商品總數:" VerticalAlignment="Center"></Label>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ProductTotalAmount}" VerticalAlignment="Center"></TextBlock>
+
+                                <Label Grid.Row="2" Grid.Column="0" Content="總金額:" VerticalAlignment="Center"></Label>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TotalPrice}" VerticalAlignment="Center"></TextBlock>
+
+
+                                <StackPanel Grid.Row="3" >
+                                    <Label Grid.Row="3" Grid.Column="0" Content="會員資訊:" VerticalAlignment="Center"></Label>
+                                    <Label Grid.Row="3" Margin="10 0 0 0" Grid.Column="0" Content="名稱:" VerticalAlignment="Center"></Label>
+                                    <Label Grid.Row="3" Margin="10 0 0 0" Grid.Column="0" Content="性別:" VerticalAlignment="Center"></Label>
+                                    <Label Grid.Row="3" Margin="10 0 0 0" Grid.Column="0" Content="等級:" VerticalAlignment="Center"></Label>
+                                    <Label Grid.Row="3" Margin="10 0 0 0" Grid.Column="0" Content="電話:" VerticalAlignment="Center"></Label>
+                                </StackPanel>
+                                <StackPanel Grid.Row="3"  Grid.Column="1" >
+                                    <Label Grid.Row="3" Grid.Column="0" Content=" " VerticalAlignment="Center"></Label>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MemberModel.Name}" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MemberModel.Gender.DisplayValue}" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MemberModel.ConsumptionLevel.Name}" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MemberModel.PhoneNumber}" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+     
+    </Grid>
+</UserControl>

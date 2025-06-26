@@ -1,0 +1,19 @@
+﻿<Window x:Class="Stage.Presentation.MVVM.MemberLoader.MemberLoaderView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stage.Presentation.MVVM.MemberLoader"
+        mc:Ignorable="d"
+        Title="MemberLoaderView" Height="300" Width="300" Background="#2A2B34" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="47*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label" Content="輸入手機號碼" HorizontalAlignment="Left" Margin="25,80,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="White"/>
+        <TextBox x:Name="textBox"  HorizontalAlignment="Left" Margin="25,110,0,0" TextWrapping="Wrap" Text="{Binding PhoneNumber}" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <Button x:Name="button" Content="確認" Command="{Binding LoadMemberCommand}" HorizontalAlignment="Left" Margin="25,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.455" Height="25" Width="120" Grid.Column="1"/>
+
+    </Grid>
+</Window>

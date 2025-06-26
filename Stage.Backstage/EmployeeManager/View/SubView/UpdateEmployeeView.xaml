@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Stage.Backstage.View.UpdateEmployeeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stage.Backstage.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="1" >
+            <Grid>
+
+                <StackPanel >
+                    <Label Content="更新"></Label>
+                    <Button Grid.Row="6" Grid.Column="0" Content="修改" Width="50" HorizontalAlignment="Left" Margin="3" 
+                      Command="{Binding EditCommand}"/>
+                    <Grid IsEnabled="{Binding IsUpdateEditEnable}">
+                        <local:EmployeeSingleGridView  DataContext="{Binding CurrentEmployeeSingleGridViewModel,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ></local:EmployeeSingleGridView>
+                    </Grid>
+                    <Button Grid.Row="6" Grid.Column="0" Content="儲存"  Margin="3" IsEnabled="{Binding IsUpdateEditEnable}"
+                         Command="{Binding UpdateCommand}"
+                         CommandParameter="{Binding CurrentEmployeeSingleGridViewModel.SelectedEmployee}"></Button>
+                    <Button Grid.Row="6" Grid.Column="1" Content="取消"  Margin="3" 
+                         IsEnabled="{Binding IsUpdateEditEnable}"
+                         Command="{Binding UpdateCancelCommand}"
+                         CommandParameter="{Binding CurrentEmployeeSingleGridViewModel.SelectedEmployee}" >
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+
+</UserControl>

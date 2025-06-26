@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Stage.DAL\Stage.DAL.csproj" />
+    <ProjectReference Include="..\Stage.Data\Stage.Data.csproj" />
+    <ProjectReference Include="..\Utility\Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

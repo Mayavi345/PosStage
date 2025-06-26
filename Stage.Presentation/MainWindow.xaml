@@ -1,0 +1,17 @@
+﻿<adonisControls:AdonisWindow  xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI" x:Class="PosStage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PosStage" xmlns:viewmodel="clr-namespace:PosStage.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1440" ResizeMode="NoResize" AllowDrop="True" WindowStartupLocation="CenterScreen">
+    <Window.Style>
+        <Style TargetType="Window" BasedOn="{StaticResource {x:Type Window}}"/>
+    </Window.Style>
+
+    <Grid>
+        <ContentPresenter  Content="{Binding MyUserControlInstance,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay }" />
+
+    </Grid>
+</adonisControls:AdonisWindow>

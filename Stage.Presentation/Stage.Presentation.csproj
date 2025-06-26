@@ -1,0 +1,141 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>point-of-sale-icon-10656.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\jack_hsu\.nuget\packages\nlog.config\4.7.15\contentFiles\any\any\NLog.config" />
+    <None Remove="C:\Users\jack_hsu\.nuget\packages\nlog.schema\5.2.5\contentFiles\any\any\NLog.xsd" />
+    <None Remove="Images\add.png" />
+    <None Remove="Images\close.png" />
+    <None Remove="Images\credit.png" />
+    <None Remove="Images\employee\employee %281%29.jpg" />
+    <None Remove="Images\employee\employee %282%29.jpg" />
+    <None Remove="Images\employee\employee %283%29.jpg" />
+    <None Remove="Images\employee\employee %284%29.jpg" />
+    <None Remove="Images\empty.jpg" />
+    <None Remove="Images\Flat_tick_icon.svg.png" />
+    <None Remove="Images\left.png" />
+    <None Remove="Images\loading.gif" />
+    <None Remove="Images\low.png" />
+    <None Remove="Images\mastercard.png" />
+    <None Remove="Images\member-50-64.png" />
+    <None Remove="Images\mini.png" />
+    <None Remove="Images\p1.png" />
+    <None Remove="Images\p2.png" />
+    <None Remove="Images\p3.png" />
+    <None Remove="Images\p4.png" />
+    <None Remove="Images\remove.png" />
+    <None Remove="Images\visa.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Dictionary1.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="point-of-sale-icon-10656.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AdonisUI" Version="1.17.1" />
+    <PackageReference Include="AdonisUI.ClassicTheme" Version="1.17.1" />
+    <PackageReference Include="LoadingSpinner.WPF" Version="1.0.0" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="WpfObservableRangeCollection" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Stage.BLL\Stage.BLL.csproj" />
+    <ProjectReference Include="..\Stage.Data\Stage.Data.csproj" />
+    <ProjectReference Include="..\Stage.ReportViewCore\Stage.ReportViewCore.csproj" />
+    <ProjectReference Include="..\Stage.Tool\Stage.Tool.csproj" />
+    <ProjectReference Include="..\State.CommonWPF\State.CommonWPF.csproj" />
+    <ProjectReference Include="..\UIComponent\UIComponent.csproj" />
+    <ProjectReference Include="..\Utility\Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Dictionary1.xaml" />
+    <Resource Include="Images\add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\credit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\employee\employee (1).jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\employee\employee (2).jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\employee\employee (3).jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\employee\employee (4).jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\empty.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Flat_tick_icon.svg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\left.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="loading.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\low.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\mastercard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\member-50-64.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\mini.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\p1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\p2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\p3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\p4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\remove.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\visa.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\Login\ViewModel\" />
+  </ItemGroup>
+
+</Project>
