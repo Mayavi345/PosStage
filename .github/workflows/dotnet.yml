@@ -1,0 +1,36 @@
+name: .NET Build and Test
+
+on:
+  push:
+    workflow_dispatch:
+    branches:
+      - main
+      - master
+      - ci-test
+  pull_request:
+    branches:
+      - develop
+      - master
+      - ci-test
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore PosStage.sln
+
+      - name: Build solution
+        run: dotnet build PosStage.sln --no-restore --configuration Release
+
+      - name: Run unit tests
+        run: dotnet test Stage.UnitTest/Stage.UnitTest.csproj --no-build --configuration Release --verbosity normal
