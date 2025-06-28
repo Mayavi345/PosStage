@@ -7,16 +7,40 @@
              mc:Ignorable="d" 
              Name="Product" >
 
-    <Grid Background="#304158" Margin="5" HorizontalAlignment="Center" Width="120" Height="170">
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-            <Ellipse Height="80" Width="80" Margin="0,10" HorizontalAlignment="Center">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="{Binding Source, UpdateSourceTrigger=PropertyChanged}" />
-                </Ellipse.Fill>
-            </Ellipse>
-            <TextBlock Text="{Binding Product.Name, UpdateSourceTrigger=PropertyChanged}" FontWeight="SemiBold" FontSize="14" Margin="0,5" TextAlignment="Center"/>
-            <TextBlock Text="{Binding Product.Price}" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Center"/>
-            <Button Style="{StaticResource buttonCount}" Content="+" Command="{Binding AddCartCommand}" Background="#6589B8" BorderBrush="{x:Null}" Foreground="White" Width="30" Height="30" Margin="0,5"/>
-        </StackPanel>
+    <Grid Background="#304158" Margin="0 15 0 0" HorizontalAlignment="Center" Width="500" Height="60">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Ellipse Height="40" Width="40" Margin="15 10 0 10" HorizontalAlignment="Center">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="{Binding Source, UpdateSourceTrigger=PropertyChanged}" ></ImageBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <TextBlock Grid.Column="1" Text="{Binding Product.Name, UpdateSourceTrigger=PropertyChanged}" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center"></TextBlock>
+        <!--<TextBlock Grid.Column="1" Text="{Binding Path=Ref,ElementName=Product}" FontWeight="SemiBold" FontSize="11" VerticalAlignment="Center" Foreground="#909090" Margin="0 38 0 0"></TextBlock>-->
+        <!--<TextBlock Grid.Column="2" Text="{Binding Color}" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center"></TextBlock>-->
+        <!--<TextBlock Grid.Column="3" Text="{Binding Product.Quantity, UpdateSourceTrigger=PropertyChanged}" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center"></TextBlock>-->
+        <!--<StackPanel Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Button Style="{StaticResource buttonCount}" Command="{Binding AddCountCommand}">
+                <Image Source="/Images/add.png"></Image>
+            </Button >
+            <Button Style="{StaticResource buttonCount}" Command="{Binding DecressCountCommand}" >
+                <Image Source="/Images/low.png"></Image>
+            </Button>
+        </StackPanel>-->
+        <TextBlock Grid.Column="5" Text="{Binding Product.Price }" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
+        <!--<TextBlock Grid.Column="6" Text="{Binding Product.ToltalPrice }" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold"></TextBlock>-->
+        <Button  Grid.Column="7" Style="{StaticResource buttonCount}"  Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#6589B8" Command="{Binding AddCartCommand}"   BorderBrush="{x:Null}" Foreground="White" ClipToBounds="True" Width="30" Height="30" />
+        <!--<Button Grid.Column="7" Style="{StaticResource buttonRemove}">
+            <Image Source="/Images/remove.png" Width="18" Style="{StaticResource icon}"></Image>
+        </Button>-->
     </Grid>
 </UserControl>

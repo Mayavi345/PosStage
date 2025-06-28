@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PosStage.MVVM.View"
              xmlns:md="clr-namespace:PosStage.MVVM.ViewModel" xmlns:converters="clr-namespace:Stage.Presentation.Common" xmlns:loadingspinnercontrol="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
              mc:Ignorable="d"
-             Width="900" Height="700"
+             Width="540" Height="360"
               xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI" 
 
     >
@@ -61,12 +61,7 @@
             <loadingspinnercontrol:LoadingSpinner IsLoading="{Binding IsLoading}">
 
             </loadingspinnercontrol:LoadingSpinner>
-            <ListBox x:Name="ProductListbox" ItemsSource="{Binding ProductViewModelList}" Visibility="{Binding IsLoading,Converter={StaticResource InverseBooleanToVisibilityConverter}}">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel />
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
+            <ListBox x:Name="ProductListbox" ItemsSource="{Binding ProductViewModelList}" Visibility="{Binding IsLoading,Converter={StaticResource InverseBooleanToVisibilityConverter}}"  >
                 <!--<local:ProductUserControl Source="/Images/p3.png" Title="Pazien Sock" Ref="Ref. 0074567660" Color="Cream" Count="3" Price="10.00 USD" ></local:ProductUserControl>-->
             </ListBox>
         </Grid>

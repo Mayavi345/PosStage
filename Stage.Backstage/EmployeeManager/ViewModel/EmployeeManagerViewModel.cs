@@ -18,6 +18,7 @@ using GalaSoft.MvvmLight.Helpers;
 using System.ComponentModel.DataAnnotations;
 using UIComponent;
 using System.Windows.Input;
+using Stage.BLL.BLL.Service;
 
 namespace Stage.Backstage.ViewModel
 {
@@ -30,13 +31,14 @@ namespace Stage.Backstage.ViewModel
         public Action RefreshGridCallBack;
         #endregion
         #region Constructor
-        public EmployeeManagerViewModel()
+        public EmployeeManagerViewModel(IEmployeeService employeeService)
         {
             try
             {
                 //初始化系統
                 NavBarViewModel = new NavBarViewModel();
-                _employeeService = MainSystemService.Instance.EmployeeService;
+                _employeeService = employeeService;
+
                 _empty = new EmployeeModel();
                 RefreshGridCallBack = UpdateDGList;
                 AddEmployeeViewModel = new AddEmployeeViewModel(RefreshGridCallBack);

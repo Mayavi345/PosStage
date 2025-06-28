@@ -45,7 +45,8 @@ namespace Stage.Backstage
 
         private void CrateEmployeePage()
         {
-            EmployeeManagerViewModel employeeManagerViewModel = new EmployeeManagerViewModel();
+            var employeeService = MainSystemService.Instance.EmployeeService;
+            EmployeeManagerViewModel employeeManagerViewModel = new EmployeeManagerViewModel(employeeService);
             PageObject employeeManagerView =
                 new PageObject(new EmployeeManagerView(), employeeManagerViewModel, employeeManagerViewModel.RefreshGridCallBack);
             PageObjectDic.Add(EViewPage.EmployeeManagerView, employeeManagerView);

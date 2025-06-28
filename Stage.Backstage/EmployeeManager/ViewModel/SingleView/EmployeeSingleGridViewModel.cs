@@ -187,12 +187,16 @@ namespace Stage.Backstage.ViewModel
         }
         public override void ClearData()
         {
-            //TODO new優化
-            SelectedEmployee = new EmployeeModel();
-            GenderSelectedItem = GenderList[0];
-            RoleListSelectedItem = RoleList[0];
+            try {
+                //TODO new優化
+                SelectedEmployee = new EmployeeModel();
+                GenderSelectedItem = GenderList[0];
+                RoleListSelectedItem = RoleList[0];
 
-            _errorMessageHelper.ClearErrors(this,"Name");
+                _errorMessageHelper.ClearErrors(this, "Name");
+            }
+            catch {
+            }
         }
 
         public override void InitSingleViewData<T>(T data)
