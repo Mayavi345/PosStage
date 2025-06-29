@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stage.UnitTest", "Stage.Uni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stage.WebAPI", "Stage.WebAPI\Stage.WebAPI.csproj", "{EB26CF37-BF91-4CD7-9BF3-E5F2804DF2B8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stage.WebMvc", "Stage.WebMvc\Stage.WebMvc.csproj", "{F18235E7-1E47-4E40-BFE3-82F373019DA6}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReportView", "ReportView", "{4102B2E9-65F7-456B-80FB-D60B53BE04A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{98B31922-62DA-4EE6-8CDD-BA13712B45B0}"
@@ -29,7 +31,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIComponent", "UIComponent\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stage.Presentation", "Stage.Presentation\Stage.Presentation.csproj", "{D333E4F9-A67D-4EE7-825F-1A975102D4B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "State.CommonWPF", "State.CommonWPF\State.CommonWPF.csproj", "{6856B448-55BB-4802-98DC-CDB466F7BB39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "State.CommonWPF", "State.CommonWPF\State.CommonWPF.csproj", "{6856B448-55BB-4802-98DC-CDB466F7BB39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{86AA2FBB-FADA-437C-A121-20811A3EC66D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項目", "{16201C14-1EBF-4447-B2E0-6B57CE188F98}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +83,10 @@ Global
 		{EB26CF37-BF91-4CD7-9BF3-E5F2804DF2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB26CF37-BF91-4CD7-9BF3-E5F2804DF2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB26CF37-BF91-4CD7-9BF3-E5F2804DF2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18235E7-1E47-4E40-BFE3-82F373019DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18235E7-1E47-4E40-BFE3-82F373019DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18235E7-1E47-4E40-BFE3-82F373019DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18235E7-1E47-4E40-BFE3-82F373019DA6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8557453-6BCD-48F7-9FAE-32F413A74CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8557453-6BCD-48F7-9FAE-32F413A74CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8557453-6BCD-48F7-9FAE-32F413A74CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU

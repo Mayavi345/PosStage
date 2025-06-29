@@ -13,5 +13,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Stage.BLL\Stage.BLL.csproj" />
   </ItemGroup>
-
 </Project>

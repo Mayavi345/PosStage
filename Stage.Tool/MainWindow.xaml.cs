@@ -20,7 +20,6 @@ namespace Stage.Tool
     public partial class MainWindow : AdonisWindow
     {
         MainWindow currentWindow;
-        SettingConfigHelper settingConfig;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,13 +29,7 @@ namespace Stage.Tool
             //UIMessageBox = new MessageSubject();
             //InitDataSystem();
 
-            //TODO 可再優化，可以讓他依照不同專案的Config Path去做變換
-            settingConfig = new SettingConfigHelper(CurrentProjectPath());
-            List<string> db = settingConfig.SettingData().DbList.Select(x => x.Db).ToList();
-
-            DBComboBox.Items.Clear();
-            DBComboBox.ItemsSource = db;
-            DBComboBox.SelectedItem = settingConfig.CurrentSelect().Db;
+            MainConfigService.Instance.InitConfig();
 
         }
         public static string CurrentProjectPath()
@@ -82,7 +75,6 @@ namespace Stage.Tool
 
         private void button_Save(object sender, RoutedEventArgs e)
         {
-            settingConfig.SetSelected(DBComboBox.SelectedItem.ToString());
             currentWindow.Close();
         }
 

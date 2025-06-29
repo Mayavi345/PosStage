@@ -1,0 +1,25 @@
+@model IEnumerable<PosStage.MVVM.Models.Implement_Model.ProductModel>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+<h1>Products</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.ProductId</td>
+        <td>@item.Name</td>
+        <td>@item.Price</td>
+    </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿# syntax=docker/dockerfile:1
+
+# 使用官方 SQL Server 2019 映像
+FROM mcr.microsoft.com/mssql/server:2019-latest
+
+# 同意 EULA、設定 SA 密碼
+ENV ACCEPT_EULA=Y \
+    SA_PASSWORD=Your_str0ng!Pass
+
+# 先以 root 權限安裝 mssql-tools
+USER root
+
+# 安裝必要套件並加入 Microsoft repository
+RUN apt-get update \
+ && apt-get install -y curl apt-transport-https gnupg \
+ && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+ && curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list \
+      > /etc/apt/sources.list.d/mssql-release.list \
+ && apt-get update \
+ # 安裝 mssql-tools（包含 sqlcmd）與 unixODBC
+ && ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev \
+ # 建立方便呼叫的軟連結
+ && ln -s /opt/mssql-tools/bin/sqlcmd /usr/bin/sqlcmd \
+ && ln -s /opt/mssql-tools/bin/bcp /usr/bin/bcp \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+# 切回 mssql 使用者
+USER mssql
+
+# 設定工作目錄
+WORKDIR /var/opt/mssql
+
+# 複製備份檔與還原腳本
+COPY PosDB.bak ./backup/PosDB.bak
+COPY restore.sh   ./restore.sh
+
+# 確保還原腳本是 UNIX 編碼
+# (在 Windows 下請用 LF 結尾，不要 CRLF)
+
+# 啟動時背景跑 sqlservr，再自動還原，最後停留
+ENTRYPOINT ["/bin/bash","-c","/opt/mssql/bin/sqlservr & sleep 20 && bash ./restore.sh && tail -f /dev/null"]

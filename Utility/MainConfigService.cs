@@ -14,11 +14,13 @@ namespace Utilities
 
         public void InitConfig(Action notExistCallback = null)
         {
-            SettingConfigHelper settingConfig =
-                new SettingConfigHelper("Setting", notExistCallback);
+            ApiServerIP = Environment.GetEnvironmentVariable("POS_APISERVER_IP") ?? string.Empty;
+            ConnectionString = Environment.GetEnvironmentVariable("POS_DB_CONNECTIONSTRING") ?? string.Empty;
 
-            ApiServerIP = settingConfig.ApiServerIP;
-            ConnectionString = settingConfig.Connectstring(); ;
+            if (string.IsNullOrEmpty(ApiServerIP) || string.IsNullOrEmpty(ConnectionString))
+            {
+                notExistCallback?.Invoke();
+            }
         }
     }
 }

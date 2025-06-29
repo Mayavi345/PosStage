@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Stage.Presentation": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "POS_APISERVER_IP": "http://192.168.1.2:8080",
+        "POS_DB_CONNECTIONSTRING": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=PosDB;User ID=JackSA;password=RGGUjkWa7wQm3sgu9KJB;Encrypt=True;TrustServerCertificate=true;"
+      }
+    }
+  }
+}

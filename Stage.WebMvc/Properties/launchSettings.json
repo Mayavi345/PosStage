@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Stage.WebMvc": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "POS_DB_CONNECTIONSTRING": "Data Source=127.0.0.1,14330;Initial Catalog=PosDB;User ID=sa;password=Your_str0ng!Pass;Encrypt=True;TrustServerCertificate=true; "
+      },
+      "applicationUrl": "https://192.168.0.186:80;http://localhost:4796"
+    }
+  }
+}
